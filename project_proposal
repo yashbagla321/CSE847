@@ -1,0 +1,76 @@
+
+\documentclass{sig-alternate-05-2015}
+
+% Include useful packages
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{float}
+
+
+\begin{document}
+
+% Copyright
+\setcopyright{acmcopyright}
+
+
+\title{Robot Control via Local Gaussian Process Regression}
+
+\author{
+% You can go ahead and credit any number of authors here,
+% e.g. one 'row of three' or two rows (consisting of one row of three
+% and a second row of one, two or three).
+%
+% The command \alignauthor (no curly braces needed) should
+% precede each author name, affiliation/snail-mail address and
+% e-mail address. Additionally, tag each line of
+% affiliation/address with \affaddr, and tag the
+% e-mail address with \email.
+%
+% 1st. author
+Yash Bagla\\
+       \email{baglayas@msu.edu}
+}
+% There's nothing stopping you putting the seventh, eighth, etc.
+% author on the opening page (as the 'third row') but we ask,
+% for aesthetic reasons that you place these 'additional authors'
+% in the \additional authors block, viz.
+\date{\today}
+% Just remember to make sure that the TOTAL number of authors
+% is the number that will appear on the first page PLUS the
+% number that will appear in the \additionalauthors section.
+
+\maketitle
+
+
+
+\section{Problem Description}
+In this work I propose to present an approximation inspired by locally linear regression techniques to the standard GPR using local Gaussian processes model. \cite{Incremental_Online_Learning}
+I will follow this paper by Duy Nguyen-Tuong, Jan Peters, Matthias Seeger and implement some of the more successful approaches in Support Vector Regression (SVR).
+I will evaluate these procedures in terms of Model-based control, e.g. torque control, locally weighted projection regression (LWPR).
+
+Robot control requires accurate dynamics models which cannot be obtained analytically for sufficiently complex robot systems to get high performance and compliant. In such cases, machine learning offers a promising alternative for approximating the robot dynamics using measured data. A natural framework to incorporate unknown nonlinearities as well as to continually adapt online for changes in the robot dynamics is something this approach offers. However, the most accurate regression methods, e.g. Gaussian processes regression (GPR) and support vector regression (SVR), suffer from exceptional high computational complexity which prevents their usage for large numbers of samples or online learning to date.\cite{GPR_for_robot_control}
+\section{Related Work}
+
+There is considerable literature in robot control using learning through GPR. Earlier work has
+touched upon Locally weighted projection regression (LWPR) which uses a small number of univariate regressions in selected directions in input space in the spirit of partial least squares regression,\cite{Incremental_Online_Learning}
+control algorithms for learning and compensating for the dynamics of manipulators during the motion are presented and tested experimentally the resulting control performances are better than with measured parameters for any trajectory in the workspace
+ \cite{nonlinear_adaptive_control}
+When using unscented Kalman filter (UKF) for control applications, learning to place the sigma points correctly from data can make sigma point collapse much less likely. Learning can result in a significant increase in predictive performance over default settings of the parameters in the UKF and other filters designed to avoid the problems of the UKF, such as the GP-ADF. At the same time, we maintain a lower computational complexity than the other methods. \cite{unscented_Kalman_filtering}
+
+\section{Project Milestones}
+This section will detail milestones so that I can roughly organize my work
+toward the completion of this project.
+\begin{itemize}
+\item Prepare a proposal and survey important literature
+\item Dig deeper into the literature and search for implementational details
+\item Clean, organize and explore the data. Include or remove clinical covariates as necessary.
+\item Prepare the code, run and test it extensively on example data. Decide if simulations will be necessary.
+\item Prepare a second draft with a detailed introduction and some results based on exploration.
+\item Run the alogrithms on the Data allocation and Model Learning.
+\item Run the alogrithms on Weighted Prediction, and collect the results. Prepare summaries and visualizations.
+\item Prepare Final Report
+\end{itemize}
+
+\bibliography{cse_847}
+\bibliographystyle{unsrt}
+\end{document}
